@@ -347,3 +347,45 @@ def estimate_cate(
         results=results,
     )
 
+def estimate_t_cate(
+    treatment_model,
+    control_model,
+    X,
+):
+    """
+    Estimate Conditional Average Treatment Effects (CATE)
+    using a fitted T-Learner.
+
+    Parameters
+    ----------
+    treatment_model : fitted classifier
+        Outcome model trained on the treatment group.
+
+    control_model : fitted classifier
+        Outcome model trained on the control group.
+
+    X : array-like
+        Feature matrix used for CATE estimation.
+
+    Returns
+    -------
+    estimated_cate : np.ndarray
+        Estimated individual treatment effects.
+
+    mu1 : np.ndarray
+        Predicted outcome probabilities under treatment.
+
+    mu0 : np.ndarray
+        Predicted outcome probabilities under control.
+    """
+
+    # Potential outcome under treatment
+    mu1 = treatment_model.predict_proba(X)[:, 1]
+
+    # Potential outcome under control
+    mu0 = control_model.predict_proba(X)[:, 1]
+
+    # T-Learner CATE
+    estimated_cate = mu1 - mu0
+
+    return estimated_cate, mu1, mu0
