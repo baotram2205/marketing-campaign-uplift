@@ -1,48 +1,56 @@
 # 📈 Marketing Campaign Optimization using Causal Inference & Uplift Modeling
 
-> An end-to-end causal analytics project for optimizing marketing campaigns using **Causal Inference** and **Uplift Modeling**.
+> An end-to-end causal analytics project for evaluating marketing campaign effectiveness and improving customer targeting using **Causal Inference** and **Uplift Modeling**.
 
 ---
 
 # 📖 Project Overview
 
-Traditional marketing campaigns often send promotions to every customer, resulting in unnecessary marketing costs and reduced campaign efficiency.
+Traditional predictive models estimate **who is likely to convert**, but they do not determine whether a marketing campaign actually causes that conversion.
 
-This project develops a **decision support system** that estimates the causal effect of marketing campaigns and recommends which customers should receive promotional offers.
+This project uses causal inference and uplift modeling to answer a different set of questions:
 
-Instead of predicting **who will convert**, the project predicts:
+- 🎯 Does the marketing campaign increase customer conversion?
+- 📊 Does treatment response differ across customers?
+- 👥 Which customers are most likely to benefit from treatment?
+- 📈 Can uplift-based targeting outperform broad or random targeting?
+- 💰 How can marketing resources be allocated more efficiently?
 
-- 🎯 Who benefits from the campaign
-- 🚫 Who should not receive the campaign
-- 📊 Expected campaign effectiveness
-- 💰 The optimal targeting strategy
+The final framework estimates both the overall causal effect of the campaign and customer-level heterogeneous treatment effects to support data-driven campaign targeting.
 
 ---
 
 # 🎯 Project Objectives
 
-The project aims to estimate:
+The project aims to:
 
-- ✅ Average Treatment Effect (ATE)
-- ✅ Conditional Average Treatment Effect (CATE)
-- ✅ Customer Uplift Score
-- ✅ Customer Ranking
-- ✅ Campaign Recommendation
-- ✅ Expected Business Impact
+- Estimate the **Average Treatment Effect (ATE)** of the campaign.
+- Evaluate treatment assignment and causal assumptions.
+- Estimate **Conditional Average Treatment Effects (CATE)**.
+- Compare alternative uplift modeling approaches.
+- Rank customers by predicted incremental treatment response.
+- Evaluate targeting performance using **Decile Analysis and Qini metrics**.
+- Develop a practical campaign targeting strategy.
 
 ---
 
 # 📂 Dataset
 
-**Dataset**
+**Criteo Uplift Prediction Dataset**
 
-- Criteo Uplift Prediction Dataset
+The dataset contains approximately 14 million customer observations from an online advertising experiment.
 
-The dataset contains customer-level observations collected during an online advertising campaign, including:
+Key variables include:
 
 - Customer features
 - Treatment assignment
 - Conversion outcome
+
+The dataset is characterized by:
+
+- Highly imbalanced treatment and control sample sizes.
+- Rare customer conversion events.
+- Large-scale customer-level behavioral data.
 
 ---
 
@@ -67,171 +75,3 @@ project/
 │
 ├── environment.yml
 └── README.md
-```
-
----
-
-# 📒 Notebook Overview
-
-## 📙 01_EDA.ipynb
-
-Exploratory Data Analysis
-
-Main contents:
-
-- Dataset overview
-- Missing value analysis
-- Duplicate analysis
-- Outlier assessment
-- Treatment distribution
-- Conversion rate analysis
-- Feature distributions
-- Correlation analysis
-- Dataset bias discussion
-- Summary of exploratory findings
-
----
-
-## 📘 02_Causal_Inference_Analysis.ipynb
-
-Complete causal analytics pipeline.
-
-### Part A – Causal Inference
-
-- Treatment Assignment Analysis
-- Covariate Balance
-- Standardized Mean Difference (SMD)
-- Logistic Regression Predicting Treatment
-- Propensity Score Distribution
-- Directed Acyclic Graph (DAG)
-- Identification Strategy
-- Causal Assumptions
-
----
-
-### Part B – Uplift Modeling
-
-**Selected Approach**
-
-- Meta Learner
-
-**Selected Model**
-
-- T-Learner
-
-**Base Learner**
-
-- LightGBM
-
-Outputs:
-
-- Estimated CATE
-- Customer Uplift Score
-- Customer Ranking
-- Campaign Recommendation
-
----
-
-### Part C – Model Evaluation
-
-Causal Estimators
-
-- Difference in Means
-- Regression Adjustment
-- Inverse Propensity Weighting (IPW)
-- Doubly Robust Estimation
-
-Uplift Evaluation
-
-- Qini Curve
-
-Policy Evaluation
-
-- Campaign Policies
-- Business Interpretation
-- Marketing Recommendation
-
----
-
-# 📊 Key Results
-
-The analysis shows that:
-
-- ✅ The marketing campaign has a **positive Average Treatment Effect (ATE)**.
-- ✅ Customers exhibit heterogeneous treatment effects, supporting the use of uplift modeling.
-- ✅ The T-Learner successfully estimates customer-level treatment effects.
-- ✅ Ranking customers by predicted uplift improves marketing efficiency.
-- ✅ The **Top 20% targeting policy** provides the highest expected business value among the evaluated strategies.
-
----
-
-# 🛠️ Technologies
-
-- 🐍 Python
-- 🐼 Pandas
-- 🔢 NumPy
-- 🤖 Scikit-learn
-- 🌲 LightGBM
-- 📈 Matplotlib
-- 📊 scikit-uplift
-
----
-
-# 🚀 Getting Started
-
-## 1️⃣ Create the environment
-
-```bash
-conda env create -f environment.yml
-```
-
-## 2️⃣ Activate the environment
-
-```bash
-conda activate uplift312
-```
-
-## 3️⃣ Launch Jupyter
-
-```bash
-jupyter notebook
-```
-
-or
-
-```bash
-jupyter lab
-```
-
----
-
-# ▶️ Run the Project
-
-Execute the notebooks in the following order:
-
-1. 📙 01_EDA.ipynb
-2. 📘 02_Causal_Inference_Analysis.ipynb
-
----
-
-# 🎓 Learning Outcomes
-
-This project demonstrates practical applications of:
-
-- Exploratory Data Analysis (EDA)
-- Causal Inference
-- Treatment Effect Estimation
-- Propensity Score Analysis
-- Uplift Modeling
-- Offline Policy Evaluation
-- Data-driven Marketing Decision Support
-
----
-
-# 👩‍💻 Author
-
-**Tram Le**
-
-Course Project
-
-Marketing Campaign Optimization using Causal Inference & Uplift Modeling
