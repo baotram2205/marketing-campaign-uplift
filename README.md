@@ -52,47 +52,6 @@ The dataset is characterized by:
 
 ## 🧠 Methodology
 
-Raw Dataset
-      │
-      ▼
-Exploratory Data Analysis (EDA)
-      │
-      ▼
-Randomization Assessment
- ├── Covariate Balance
- ├── Standardized Mean Difference (SMD)
- ├── Propensity Score Overlap
- └── Logistic Regression Check
-      │
-      ▼
-Causal Identification
- ├── DAG Construction
- ├── Consistency
- ├── Ignorability
- └── Positivity
-      │
-      ▼
-Average Treatment Effect (ATE)
- ├── Difference in Means
- ├── Regression Adjustment
- ├── Inverse Probability Weighting
- └── Doubly Robust
-      │
-      ▼
-Conditional Average Treatment Effect (CATE)
- ├── T-Learner
- └── X-Learner
-      │
-      ▼
-Model Evaluation
- ├── CATE Distribution
- ├── Decile Analysis
- ├── Qini Curve
- └── T-Learner vs X-Learner Comparison
-      │
-      ▼
-Customer Ranking & Campaign Targeting
-
 The analysis begins with exploratory data analysis and validation of the randomized treatment assignment. Covariate balance, standardized mean differences, propensity score overlap, and logistic regression diagnostics are used to assess whether the treatment and control groups satisfy the assumptions required for causal inference.
 
 The overall campaign effectiveness is then estimated using four complementary ATE estimators: Difference in Means, Regression Adjustment, Inverse Probability Weighting (IPW), and Doubly Robust. Consistent estimates across these methods provide evidence that the estimated treatment effect is robust.
