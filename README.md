@@ -18,66 +18,6 @@ This project uses causal inference and uplift modeling to answer a different set
 
 The final framework estimates both the overall causal effect of the campaign and customer-level heterogeneous treatment effects to support data-driven campaign targeting.
 
----
-# 📖 System / Project Architecture
-
-CRITEO UPLIFT DATA
-        │
-        ▼
-┌─────────────────────────────┐
-│     DATA PREPARATION        │
-│ Cleaning / Feature Analysis │
-│ Train-Test Split            │
-└──────────────┬──────────────┘
-               ▼
-┌─────────────────────────────┐
-│   CAUSAL VALIDATION         │
-│ Randomization               │
-│ Covariate Balance / SMD     │
-│ Propensity Score            │
-│ Causal Assumptions          │
-└──────────────┬──────────────┘
-               │
-        ┌──────┴──────┐
-        ▼             ▼
-  OVERALL EFFECT   HETEROGENEOUS EFFECT
-       ATE               CATE
-        │                 │
- Difference in      ┌─────┴─────┐
- Means / RA /       ▼           ▼
- IPW / DR       T-Learner    X-Learner
-                    │           │
-                    └─────┬─────┘
-                          ▼
-                  MODEL EVALUATION
-                  Qini Comparison
-                          │
-                          ▼
-                    X-LEARNER
-                   Final Model
-                          │
-                          ▼
-                   Customer CATE
-                   / Uplift Score
-                          │
-                          ▼
-                    Uplift Ranking
-                          │
-             ┌────────────┼────────────┐
-             ▼            ▼            ▼
-           High        Medium      Low/Negative
-             │
-             ▼
-                POLICY EVALUATION
-              5% / 10% / 20% / ...
-             Gain Capture / Efficiency
-                          │
-                          ▼
-                  BUSINESS DECISION
-                     TOP 20%
-
-
-
 # 🎯 Project Objectives
 
 The project aims to:
@@ -110,7 +50,7 @@ The dataset is characterized by:
 - Rare customer conversion events.
 - Large-scale customer-level behavioral data.
 
----
+--
 
 # 🏗️ Project Structure
 
