@@ -24,7 +24,7 @@ The objectives are to:
 
 ### Overall Treatment Effect
 
-The campaign produces a positive average effect on customer conversion.
+The analysis estimates a positive Average Treatment Effect (ATE), suggesting that the campaign improves customer conversion on average.
 
 On the held-out test population:
 
@@ -32,13 +32,13 @@ On the held-out test population:
 - Control conversion rate: **0.1900%**
 - Average Treatment Effect (ATE): **+0.1236 percentage points**
 
-This indicates that the campaign increases customer conversion on average.
+All four causal estimators (Difference in Means, Regression Adjustment, IPW, and Doubly Robust) produced highly consistent ATE estimates, supporting the robustness of this result.
 
 ### Treatment Effect Heterogeneity
 
 The treatment effect is not uniform across customers.
 
-Although **99.68%** of customers have a positive predicted CATE, most customers have relatively small incremental effects, while a smaller group exhibits substantially stronger treatment response.
+Although **99.68%** of customers have positive predicted CATE values, most customers exhibit relatively small incremental effects, while a smaller group is predicted to respond substantially more strongly.
 
 This heterogeneity provides an opportunity to improve campaign efficiency through customer-level targeting.
 
@@ -53,7 +53,7 @@ The X-Learner demonstrated stronger uplift ranking performance:
 | T-Learner | 624.21 |
 | X-Learner | **1073.98** |
 
-The X-Learner therefore was selected as the final model for customer uplift ranking and campaign targeting.
+The X-Learner was therefore selected as the final model
 
 ### Campaign Targeting
 
@@ -70,13 +70,15 @@ Incremental campaign gain is highly concentrated among customers with the highes
 
 Targeting approximately the **top 20% of customers** captures **83.3% of the total cumulative incremental gain**, while reaching only one-fifth of the population.
 
+This indicates that marketing resources can be concentrated on a relatively small customer segment while retaining most of the incremental campaign benefit.
+
 ---
 
 ## Business Recommendations
 
 The campaign should not be applied uniformly across the entire customer population.
 
-Customers should instead be ranked using their **X-Learner predicted uplift scores**, with marketing resources prioritized toward customers with the highest expected incremental response.
+Customers should instead be ranked according to their predicted uplift scores, with campaign resources prioritized toward those expected to generate the greatest incremental conversions.
 
 Under the current evaluation, the **top 20% of customers represents a practical targeting range**, capturing most of the available incremental gain while maintaining substantially higher targeting efficiency than broad population targeting.
 
@@ -92,10 +94,3 @@ The final operational cutoff should additionally consider campaign cost, convers
 - The recommended 20% targeting threshold should therefore be interpreted as a practical model-based targeting range rather than a profit-maximizing optimum.
 
 ---
-
-## Future Work
-
-- Compare the X-Learner with additional heterogeneous treatment effect models such as Causal Forest.
-- Incorporate campaign cost and conversion value to optimize targeting based on expected incremental profit.
-- Evaluate model stability across different samples and campaign periods.
-- Develop business-specific targeting thresholds based on budget and operational capacity.
