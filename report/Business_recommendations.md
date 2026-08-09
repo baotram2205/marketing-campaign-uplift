@@ -1,49 +1,25 @@
-# Business Recommendations
+### Does the campaign actually increase conversions?
 
-## Business Question 1
+Yes.
 
-### Does the marketing campaign increase customer conversion?
+All four causal estimators consistently estimate a positive Average Treatment Effect (ATE) of approximately 0.001, indicating that the campaign increases customer conversion on average. The treated group also achieves a higher observed conversion rate than the control group.
 
-**Yes.**
+### Business Question 2
+What is the overall campaign effectiveness?
 
-The treatment group achieved a conversion rate of **0.3136%**, compared with **0.1900%** for the control group.
+The campaign has a positive but modest average effect, increasing conversion by approximately 0.1 percentage points. The consistent ATE estimates across multiple causal estimators indicate that this conclusion is robust.
 
-The estimated Average Treatment Effect (ATE) is **0.001236**, equivalent to an increase of **0.1236 percentage points**.
+### Business Question 3
+Which customers benefit from the campaign?
 
-This indicates that the marketing campaign has a positive average effect on customer conversion.
+Customers with the highest predicted CATE (uplift) benefit the most from the campaign. Although most customers have positive predicted uplift, the magnitude of the treatment effect varies substantially across individuals, demonstrating meaningful treatment effect heterogeneity.
 
+### Business Question 4
+Which customers should not receive the campaign?
 
-## Business Question 2
+Customers with negative predicted uplift should not receive the campaign. Under budget constraints, customers outside the top 20% of the uplift ranking should be assigned lower priority.
 
-### Should every customer receive the campaign?
+### Business Question 5
+What targeting strategy maximizes business value?
 
-**No.**
-
-Although the campaign has a positive average treatment effect, the X-Learner shows that the magnitude of treatment response varies substantially across customers.
-
-Most customers have relatively small predicted uplift, while a smaller group accounts for a much larger incremental response.
-
-Therefore, applying the campaign uniformly across all customers is unlikely to be the most efficient targeting strategy.
-
-## Business Question 3
-
-### Which customers should be targeted?
-
-Customers with the **highest predicted uplift scores** should be prioritized.
-
-The X-Learner ranks customers according to their expected incremental response to treatment.
-
-The highest-ranked decile achieved an observed uplift of **0.008620**, substantially higher than most lower-ranked groups, providing evidence that the model successfully concentrates stronger treatment responders toward the top of the ranking.
----
-
-## Business Question 4
-
-### What campaign targeting strategy is recommended?
-
-Customers should be ranked by their X-Learner predicted uplift score and the campaign should prioritize approximately the **top 20%** of customers.
-
-The top 20% captures approximately **83.3% of the total cumulative incremental gain**, while targeting only one-fifth of the population.
-
-Beyond this range, additional gain increases more slowly while gain per targeted customer continues to decline.
-
-Therefore, the top 20% represents a practical targeting range under the current model.
+The campaign should prioritize customers with the highest predicted uplift rather than targeting the entire population. Based on the cumulative gain analysis, targeting approximately the top 20% of ranked customers captures over 80% of the total incremental gain while maintaining efficient resource allocation.
