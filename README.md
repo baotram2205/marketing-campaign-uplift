@@ -50,7 +50,54 @@ The dataset is characterized by:
 - Rare customer conversion events.
 - Large-scale customer-level behavioral data.
 
---
+## 🧠 Methodology
+
+Raw Dataset
+      │
+      ▼
+Exploratory Data Analysis (EDA)
+      │
+      ▼
+Randomization Assessment
+ ├── Covariate Balance
+ ├── Standardized Mean Difference (SMD)
+ ├── Propensity Score Overlap
+ └── Logistic Regression Check
+      │
+      ▼
+Causal Identification
+ ├── DAG Construction
+ ├── Consistency
+ ├── Ignorability
+ └── Positivity
+      │
+      ▼
+Average Treatment Effect (ATE)
+ ├── Difference in Means
+ ├── Regression Adjustment
+ ├── Inverse Probability Weighting
+ └── Doubly Robust
+      │
+      ▼
+Conditional Average Treatment Effect (CATE)
+ ├── T-Learner
+ └── X-Learner
+      │
+      ▼
+Model Evaluation
+ ├── CATE Distribution
+ ├── Decile Analysis
+ ├── Qini Curve
+ └── T-Learner vs X-Learner Comparison
+      │
+      ▼
+Customer Ranking & Campaign Targeting
+
+The analysis begins with exploratory data analysis and validation of the randomized treatment assignment. Covariate balance, standardized mean differences, propensity score overlap, and logistic regression diagnostics are used to assess whether the treatment and control groups satisfy the assumptions required for causal inference.
+
+The overall campaign effectiveness is then estimated using four complementary ATE estimators: Difference in Means, Regression Adjustment, Inverse Probability Weighting (IPW), and Doubly Robust. Consistent estimates across these methods provide evidence that the estimated treatment effect is robust.
+
+To identify which customers benefit most from the campaign, heterogeneous treatment effects are estimated using both T-Learner and X-Learner. Their performance is compared using uplift-specific evaluation metrics, including decile analysis and the Qini curve. The best-performing model is then used to rank customers by predicted uplift and recommend a data-driven targeting strategy.
 
 # 🏗️ Project Structure
 
